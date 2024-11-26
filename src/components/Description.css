@@ -1,0 +1,23 @@
+.Container__Description {
+    max-width: 862px;
+}
+
+.Container__Description .MuiTextField-root {
+    display: flex;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-bottom: 1em;
+}
+
+.Star_red{
+    color: red;
+}
+
+.Text__Format {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.5em;
+}

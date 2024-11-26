@@ -5,6 +5,7 @@ import CreateTicketHeader from "./CreateTicketHeader";
 import SubjectLine from "./SubjectLine";
 import ITDepartments from "./ITDepartments";
 import CIs from "./CIs";
+import Description from "./Description";
 
 function TicketBox() {
     return (
@@ -18,6 +19,9 @@ function TicketBox() {
             <div className="BoxRowFlex">
                 <ITDepartments />
                 <CIs/>
+            </div>
+            <div>
+                <Description/>
             </div>
         </Box>
     )
