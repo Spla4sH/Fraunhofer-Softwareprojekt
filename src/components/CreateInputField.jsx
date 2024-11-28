@@ -9,16 +9,14 @@ function CreateInputField({ headingText, isRequired, isFullWidth }) {
             noValidate
             autoComplete="off"
         >
-            <div>
-                <h3>
-                    {headingText} {isRequired && <span>*</span>}
-                </h3>
-            </div>
+            <h3>
+                {headingText} {isRequired && <span>*</span>}
+            </h3>
             <div>
                 <TextField
                     style={{ width: isFullWidth ? '100%' : '250px' }}
                     required
-                    defaultValue={headingText}
+                    placeholder="..."
                 />
             </div>
         </Box>

@@ -1,33 +1,36 @@
-import "./ITDepartments.css"
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-// import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-// import IconButton from "@mui/material/IconButton";
+import {FormControl, MenuItem, Select, IconButton} from '@mui/material';
+import * as React from 'react';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 function ITDepartments() {
+    const [departement, setdepartement] = React.useState('');
+
+    const handleChange = (event) => {
+        setdepartement(event.target.value);
+    };
+
     return (
         <div>
-            <h3>IT-Abteilung</h3>
-
-            {/* <IconButton aria-label="HelpLabel" size="small">
-                <HelpOutlineIcon fontSize="small" />
-            </IconButton> */}
+            <div className='HelperIcon'>
+                <h3>IT - Abteilung</h3>
+                <IconButton aria-label="helpOutline" >
+                    <HelpOutlineIcon />
+                </IconButton>
+            </div>
 
             <FormControl
                 style={{ width: '250px' }}
             >
-                {/* <InputLabel id="demo-simple-select-label">IT-Abteilung</InputLabel> */}
                 <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                // value={ITDepartment}
-                // onChange={handleChange}                        
+                    value={departement}
+                    onChange={handleChange}
+                    displayEmpty
+                    inputProps={{ 'aria-label': 'Without label' }}                   
                 >
+                    <MenuItem value=""><em>Bitte auswählen</em></MenuItem>
                     <MenuItem value={1}>Linux</MenuItem>
                     <MenuItem value={2}>Windows</MenuItem>
-                    <MenuItem value={3}>IT-Zentral-Dispatcher</MenuItem>
+                    <MenuItem value={3}>Zentral-Dispatcher</MenuItem>
                 </Select>
             </FormControl>
         </div>

@@ -1,18 +1,20 @@
 import * as React from 'react';
 import "./Description.css"
 
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { 
+    styled,
+    Box,
+    Paper,
+    Divider,
+    TextField,
+    ToggleButton,
+    ToggleButtonGroup,
+    toggleButtonGroupClasses,
+ } from '@mui/material';  
 
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup, {toggleButtonGroupClasses} from '@mui/material/ToggleButtonGroup';
 import FormatBoldIcon from '@mui/icons-material/FormatBold';
 import FormatItalicIcon from '@mui/icons-material/FormatItalic';
 import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
-import Divider from '@mui/material/Divider';
-import Paper from '@mui/material/Paper';
-
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
@@ -57,14 +59,13 @@ function Description(){
             autoComplete="off"
         >
             <div>
-                <h1>Description<span class="Star_red">*</span></h1>
+                <h3>Beschreibung<span>*</span></h3>
             </div>
 
             <div>
                 <TextField
                     id="outlined-textarea"
-                    label="Description"
-                    placeholder="Description"
+                    placeholder="Beschreibung"
                     multiline
                 />
             </div>
