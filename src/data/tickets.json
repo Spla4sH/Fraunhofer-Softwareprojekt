@@ -1,0 +1,52 @@
+[
+  {
+    "nummer": 123456,
+    "status": {
+      "label": "Open",
+      "status_changed": "2023-11-01"
+    },
+    "betreff": "Desktop zerstört",
+    "id": "d1a2f3g4h5i6",
+    "dateCreated": "2023-10-30"
+  },
+  {
+    "nummer": 123457,
+    "status": {
+      "label": "Closed",
+      "status_changed": "2023-11-15"
+    },
+    "betreff": "Drucker funktioniert nicht",
+    "id": "d1a2f3g4h5i7",
+    "dateCreated": "2023-11-10"
+  },
+  {
+    "nummer": 123458,
+    "status": {
+      "label": "In Progress",
+      "status_changed": "2023-11-20"
+    },
+    "betreff": "Bildschirm flackert",
+    "id": "d1a2f3g4h5i8",
+    "dateCreated": "2023-11-18"
+  },
+  {
+    "nummer": 123459,
+    "status": {
+      "label": "Open",
+      "status_changed": "2023-11-25"
+    },
+    "betreff": "Maus reagiert nicht",
+    "id": "d1a2f3g4h5i9",
+    "dateCreated": "2023-11-23"
+  },
+  {
+    "nummer": 123460,
+    "status": {
+      "label": "Closed",
+      "status_changed": "2023-11-05"
+    },
+    "betreff": "Tastatur defekt",
+    "id": "d1a2f3g4h5j0",
+    "dateCreated": "2023-11-01"
+  }
+]
