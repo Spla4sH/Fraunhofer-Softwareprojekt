@@ -16,7 +16,7 @@ function CreateInputField({ headingText, isRequired, isFullWidth }) {
                 <TextField
                     style={{ width: isFullWidth ? '100%' : '250px' }}
                     required
-                    placeholder="..."
+                    placeholder= {headingText}
                 />
             </div>
         </Box>
