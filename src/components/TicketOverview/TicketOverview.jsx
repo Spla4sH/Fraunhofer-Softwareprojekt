@@ -1,16 +1,17 @@
 import AddIcon from "@mui/icons-material/Add";
-import { Box, Button, Tab, Typography } from "@mui/material";
+import { Box, Button, Typography, Chip } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import * as React from "react";
-import Tabs from "../../components/Tabs/Tabs";
-import TicketTable from "../TicketTable/TicketTable";
-import ticketData from "../../data/tickets.json";
 import { useEffect, useState } from "react";
+import Tabs from "../../components/Tabs/Tabs";
+import ticketData from "../../data/tickets.json";
+import TicketTable from "../TicketTable/TicketTable";
+import TicketTableCollapsable from "../TicketTable/TicketTableCollapsable";
 
 function TabAll() {
   return (
     <>
-      <TicketTable tickets={ticketData} />
+      <TicketTableCollapsable tickets={ticketData} />
     </>
   );
 }
@@ -25,7 +26,7 @@ function TabOpen() {
   }, [ticketData]);
   return (
     <>
-      <TicketTable tickets={ticketsOpen} />
+      <TicketTableCollapsable tickets={ticketsOpen} />
     </>
   );
 }
@@ -40,7 +41,7 @@ function TabInProgress() {
   }, [ticketData]);
   return (
     <>
-      <TicketTable tickets={ticketsInProgress} />
+      <TicketTableCollapsable tickets={ticketsInProgress} />
     </>
   );
 }
@@ -54,7 +55,7 @@ function TabClosed() {
   }, [ticketData]);
   return (
     <>
-      <TicketTable tickets={ticketsClosed} />
+      <TicketTableCollapsable tickets={ticketsClosed} />
     </>
   );
 }

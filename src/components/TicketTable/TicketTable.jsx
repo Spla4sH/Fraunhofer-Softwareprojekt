@@ -11,9 +11,11 @@ import {
   TableRow,
   TextField,
   Typography,
+  Chip,
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 import React from "react";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 function TicketTable({ tickets }) {
   const sxHeaderCell = {
@@ -80,6 +82,7 @@ function TicketTable({ tickets }) {
           {/* Table Head */}
           <TableHead>
             <TableRow>
+              <TableCell />
               <TableCell sx={sxHeaderCell}>Nummer</TableCell>
               <TableCell sx={sxHeaderCell}>Bearbeitungsstatus</TableCell>
               <TableCell sx={sxHeaderCell}>Betreff</TableCell>
@@ -99,9 +102,33 @@ function TicketTable({ tickets }) {
             {tickets &&
               tickets.map((ticket, index) => (
                 <TableRow key={index}>
-                  <TableCell>{ticket?.nummer}</TableCell>
-                  <TableCell>{ticket?.status?.label}</TableCell>
-                  <TableCell>{ticket?.betreff}</TableCell>
+                  <TableCell sx={{ color: "#1F82C0" }}>
+                    <Typography sx={{ fontWeight: "bold" }}>
+                      {ticket?.nummer}
+                    </Typography>{" "}
+                    <Typography variant="body2" color="text.secondary">
+                      Erstellt am {ticket?.dateCreated}
+                    </Typography>
+                  </TableCell>
+                  <TableCell sx={{ color: "#155680" }}>
+                    {" "}
+                    <Chip
+                      icon={<FiberManualRecordIcon sx={{ fontSize: "13px" }} />}
+                      label={ticket?.status?.label}
+                      color="primary"
+                      variant="outlined"
+                      sx={{
+                        fontWeight: "bold",
+                      }}
+                    />
+                    <Typography variant="body2" color="text.secondary">
+                      {ticket?.status?.label} seit{" "}
+                      {ticket.status.status_changed}
+                    </Typography>
+                  </TableCell>
+                  <TableCell sx={{ fontWeight: "bold" }}>
+                    {ticket?.betreff}
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>
