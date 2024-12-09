@@ -1,6 +1,8 @@
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   Box,
+  Chip,
   InputAdornment,
   Pagination,
   Table,
@@ -11,11 +13,8 @@ import {
   TableRow,
   TextField,
   Typography,
-  Chip,
 } from "@mui/material";
-import { red } from "@mui/material/colors";
 import React from "react";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 function TicketTable({ tickets }) {
   const sxHeaderCell = {

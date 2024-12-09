@@ -1,9 +1,8 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import MuiTabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
+import Tab from "@mui/material/Tab";
+import MuiTabs from "@mui/material/Tabs";
+import PropTypes from "prop-types";
+import * as React from "react";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
