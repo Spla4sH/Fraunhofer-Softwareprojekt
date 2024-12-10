@@ -10,14 +10,6 @@ import {IconButton, Box} from '@mui/material';
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-
-const ItAbteilung = [
-  { title: 'Zentral-Dispatcher' },
-  { title: 'Abteilung 1' },
-  { title: 'Abteilung 2' },
-  { title: 'Abteilung 3' },
-];
-
 const ConfigItems = [
   { title: '123xyz' },
   { title: '124fgh' },
@@ -29,11 +21,10 @@ export default function CheckboxesTags({headingText}) {
 
   let inputArray = null;
 
-  if(headingText == "IT-Abteilung"){
-    inputArray = ItAbteilung;
-  } else {
+  if(headingText == "Betroffene Geräte"){
     inputArray = ConfigItems;
   }
+  
   return (
     <Box>
       <div className='HelperIcon'>
