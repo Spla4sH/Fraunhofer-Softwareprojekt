@@ -1,0 +1,304 @@
+{
+  "tickets": [
+    {
+      "nummer": 123456,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-01"
+      },
+      "betreff": "Desktop zerstört",
+      "id": "d1a2f3g4h5i6",
+      "dateCreated": "2023-10-30",
+      "process": {
+        "revisor": "Simon H",
+        "date": "2023-11-01",
+        "comment": "test"
+      }
+    },
+    {
+      "nummer": 123457,
+      "status": {
+        "label": "Closed",
+        "status_changed": "2023-11-02"
+      },
+      "betreff": "Laptop defekt",
+      "id": "a7b8c9d0e1f2",
+      "dateCreated": "2023-10-31",
+      "process": {
+        "revisor": "Lisa M",
+        "date": "2023-11-02",
+        "comment": "resolved"
+      }
+    },
+    {
+      "nummer": 123458,
+      "status": {
+        "label": "In Progress",
+        "status_changed": "2023-11-03"
+      },
+      "betreff": "Monitor flackert",
+      "id": "z1x2c3v4b5n6",
+      "dateCreated": "2023-11-01",
+      "process": {
+        "revisor": "John D",
+        "date": "2023-11-03",
+        "comment": "investigating"
+      }
+    },
+    {
+      "nummer": 123459,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-04"
+      },
+      "betreff": "Tastatur kaputt",
+      "id": "q1w2e3r4t5y6",
+      "dateCreated": "2023-11-02",
+      "process": {
+        "revisor": "Anna K",
+        "date": "2023-11-04",
+        "comment": "awaiting parts"
+      }
+    },
+    {
+      "nummer": 123460,
+      "status": {
+        "label": "Closed",
+        "status_changed": "2023-11-05"
+      },
+      "betreff": "Maus reagiert nicht",
+      "id": "u1i2o3p4a5s6",
+      "dateCreated": "2023-11-03",
+      "process": {
+        "revisor": "Mark T",
+        "date": "2023-11-05",
+        "comment": "fixed"
+      }
+    },
+    {
+      "nummer": 123461,
+      "status": {
+        "label": "In Progress",
+        "status_changed": "2023-11-06"
+      },
+      "betreff": "Druckerpapier leer",
+      "id": "d1d2d3d4d5d6",
+      "dateCreated": "2023-11-04",
+      "process": {
+        "revisor": "Sophia J",
+        "date": "2023-11-06",
+        "comment": "checking stock"
+      }
+    },
+    {
+      "nummer": 123462,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-07"
+      },
+      "betreff": "Netzwerkproblem",
+      "id": "a1b2c3d4e5f6",
+      "dateCreated": "2023-11-05",
+      "process": {
+        "revisor": "Peter Q",
+        "date": "2023-11-07",
+        "comment": "troubleshooting"
+      }
+    },
+    {
+      "nummer": 123463,
+      "status": {
+        "label": "Closed",
+        "status_changed": "2023-11-08"
+      },
+      "betreff": "Softwarefehler",
+      "id": "g1h2j3k4l5m6",
+      "dateCreated": "2023-11-06",
+      "process": {
+        "revisor": "Emma P",
+        "date": "2023-11-08",
+        "comment": "updated software"
+      }
+    },
+    {
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "Backup fehlgeschlagen",
+      "id": "n1m2b3v4c5x6",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "nummer": 123465,
+      "status": {
+        "label": "In Progress",
+        "status_changed": "2023-11-10"
+      },
+      "betreff": "Passwort vergessen",
+      "id": "y1t2r3e4w5q6",
+      "dateCreated": "2023-11-08",
+      "process": {
+        "revisor": "Nina L",
+        "date": "2023-11-10",
+        "comment": "resetting password"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
+    }
+  ]
+}

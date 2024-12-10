@@ -22,7 +22,12 @@ function Row(props) {
 
   return (
     <React.Fragment>
-      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+      <TableRow
+        sx={{
+          backgroundColor: open ? "#8DB2AB" : "transparent",
+          "& > *": { borderBottom: "unset" },
+        }}
+      >
         <TableCell>
           <IconButton
             aria-label="expand row"
@@ -63,7 +68,15 @@ function Row(props) {
               {/* <Typography variant="h6" gutterBottom component="div">
                 Child table
               </Typography> */}
-              <Table size="small" aria-label="purchases">
+              <Table
+                size="small"
+                aria-label="purchases"
+                sx={{
+                  backgroundColor: "#E4F6F3", // Light green for the header
+                  color: "black", // White text for contrast
+                  fontWeight: "normal",
+                }}
+              >
                 <TableHead>
                   <TableRow>
                     <TableCell>Datum</TableCell>

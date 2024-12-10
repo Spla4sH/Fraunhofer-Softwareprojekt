@@ -10,7 +10,7 @@ import TicketTableCollapsable from "../TicketTable/TicketTableCollapsable";
 export default function TicketOveriew() {
   const [ticketData, setTicketData] = useState([]);
 
-  function getTicketData(label) {
+  function getTicketDataForTab(label) {
     if (!ticketData) {
       return [];
     }
@@ -35,21 +35,23 @@ export default function TicketOveriew() {
   const tabContent = [
     {
       label: "Alle",
-      content: <TicketTableCollapsable tickets={getTicketData("all")} />,
+      content: <TicketTableCollapsable tickets={getTicketDataForTab("all")} />,
     },
     {
       label: "Offen",
-      content: <TicketTableCollapsable tickets={getTicketData("Open")} />,
+      content: <TicketTableCollapsable tickets={getTicketDataForTab("Open")} />,
     },
     {
       label: "In Bearbeitung",
       content: (
-        <TicketTableCollapsable tickets={getTicketData("In Progress")} />
+        <TicketTableCollapsable tickets={getTicketDataForTab("In Progress")} />
       ),
     },
     {
       label: "Abgeschlossen",
-      content: <TicketTableCollapsable tickets={getTicketData("Closed")} />,
+      content: (
+        <TicketTableCollapsable tickets={getTicketDataForTab("Closed")} />
+      ),
     },
   ];
   return (
