@@ -149,6 +149,21 @@
         "date": "2023-11-10",
         "comment": "resetting password"
       }
+    },
+    {
+      "id": "n1m2b3v4c5x6",
+      "nummer": 123464,
+      "status": {
+        "label": "Open",
+        "status_changed": "2023-11-09"
+      },
+      "betreff": "DUMMY TICKET",
+      "dateCreated": "2023-11-07",
+      "process": {
+        "revisor": "Jake W",
+        "date": "2023-11-09",
+        "comment": "investigating issue"
+      }
     }
   ]
 }

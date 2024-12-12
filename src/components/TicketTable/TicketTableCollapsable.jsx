@@ -11,9 +11,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-
-import { Chip } from "@mui/material";
-
+import InputLabel from "@mui/material/InputLabel";
+import TablePagination from "@mui/material/TablePagination";
+import { useState, useEffect } from "react";
+import { Chip, TextField, InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 function Row(props) {
@@ -105,6 +107,39 @@ function Row(props) {
 }
 
 export default function TicketTableCollapsable({ tickets }) {
+  const [ticketsFiltered, setTicketsFiltered] = useState();
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  useEffect(() => {
+    setTicketsFiltered(tickets);
+    console.log("tickets", tickets);
+  }, [tickets]);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+  const filterTicketData = (event) => {
+    let filterValue = event.target.value.toLowerCase(); // Convert to lowercase for case-insensitive matching
+    console.log("input value", filterValue);
+
+    // Filter tickets based on 'betreff' or 'nummer'
+    const filtered = tickets.filter((ticket) => {
+      // Convert 'betreff' and 'nummer' to strings and check for includes
+      const betreffMatch =
+        ticket.betreff?.toLowerCase().includes(filterValue) || false;
+      const nummerMatch =
+        ticket.nummer?.toString().includes(filterValue) || false;
+
+      return betreffMatch || nummerMatch; // Include ticket if either field matches
+    });
+
+    setTicketsFiltered(filtered); // Update state with the filtered list
+  };
   const sxHeaderCell = {
     marginTop: 3,
     fontStyle: "normal",
@@ -115,11 +150,14 @@ export default function TicketTableCollapsable({ tickets }) {
     textTransform: "uppercase",
     color: "#797979",
   };
+
   return (
     <Box
       sx={{
         m: 1,
-        p: 3,
+        p: 0,
+
+        paddingY: 3,
 
         display: "flex",
         flexDirection: "column",
@@ -131,28 +169,43 @@ export default function TicketTableCollapsable({ tickets }) {
 
         backgroundColor: "transparent",
         boxShadow:
-          "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
+          "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",
         borderRadius: 8,
       }}
     >
-      <TableContainer>
+      <TextField
+        onChange={(event) => filterTicketData(event)}
+        sx={{ m: 2, width: "80%", p: 1 }}
+        placeholder="Suche nach Betreff, Ticketnummer"
+        slotProps={{
+          input: {
+            startAdornment: (
+              <SearchIcon sx={{ color: "grey", marginRight: 1 }} />
+            ),
+          },
+        }}
+        variant="standard"
+      />
+      <TableContainer sx={{ backgroundColor: "transparent" }}>
         <Table aria-label="collapsible table">
-          <TableHead>
-            <TableRow>
-              <TableCell />
+          <TableHead sx={{ backgroundColor: "transparent" }}>
+            <TableRow sx={{ backgroundColor: "transparent" }}>
+              <TableCell> </TableCell>
               <TableCell sx={sxHeaderCell}>Nummer</TableCell>
               <TableCell sx={sxHeaderCell}>Bearbeitungsstatus</TableCell>
               <TableCell sx={sxHeaderCell}>Betreff</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {tickets &&
-              tickets.length > 0 &&
-              tickets.map((ticket, index) => (
-                <Row key={index} ticket={ticket} />
-              ))}
+            {ticketsFiltered &&
+              ticketsFiltered.length > 0 &&
+              ticketsFiltered
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((ticket, index) => {
+                  return <Row key={index} ticket={ticket} />;
+                })}
             {/* Empty table row */}
-            {tickets && tickets.length === 0 && (
+            {ticketsFiltered && ticketsFiltered.length === 0 && (
               <TableRow>
                 <TableCell colSpan={3} align="center">
                   <Typography variant="body1" color="text.secondary">
@@ -164,6 +217,17 @@ export default function TicketTableCollapsable({ tickets }) {
           </TableBody>
         </Table>
       </TableContainer>
+
+      <TablePagination
+        sx={{ width: "100%", backgroundColor: "transparent" }}
+        rowsPerPageOptions={[5, 10, 50]}
+        component="div"
+        count={tickets.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
     </Box>
   );
 }

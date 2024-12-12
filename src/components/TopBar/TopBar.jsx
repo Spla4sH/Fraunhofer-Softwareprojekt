@@ -10,7 +10,7 @@ export default function TopBar() {
       <AppBar
         position="static"
         sx={{
-          height: { xs: "8vh", md: "11vh" },
+          height: "8vh",
           width: "100vw",
           display: "flex",
           justifyContent: "center",
