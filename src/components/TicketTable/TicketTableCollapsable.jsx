@@ -11,7 +11,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import InputLabel from "@mui/material/InputLabel";
+
+// Import SVGs
+import ArrowUpIcon from "../../assets/ArrowUp.svg";
+import ArrowDownIcon from "../../assets/ArrowDown.svg";
+
 import TablePagination from "@mui/material/TablePagination";
 import { useState, useEffect } from "react";
 import { Chip, TextField, InputAdornment } from "@mui/material";
@@ -30,13 +34,13 @@ function Row(props) {
           "& > *": { borderBottom: "unset" },
         }}
       >
-        <TableCell>
+        <TableCell align="center">
           <IconButton
             aria-label="expand row"
             size="small"
             onClick={() => setOpen(!open)}
           >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            <img src={open ? ArrowUpIcon : ArrowDownIcon} alt="Toggle Icon" />{" "}
           </IconButton>
         </TableCell>
 
@@ -63,10 +67,42 @@ function Row(props) {
         </TableCell>
         <TableCell sx={{ fontWeight: "bold" }}>{ticket?.betreff}</TableCell>
       </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
+      <TableRow
+        sx={{
+          backgroundColor: "transparent",
+          width: "90% !important",
+          marginRight: 5,
+          paddingRight: 5,
+        }}
+      >
+        <TableCell
+          align="left"
+          sx={{
+            paddingBottom: 0,
+            paddingTop: 0,
+            width: "80%",
+
+            paddingLeft: 0,
+
+            backgroundColor: "transparent",
+          }}
+          colSpan={8}
+        >
+          <Collapse
+            sx={{ width: "100%" }}
+            in={open}
+            timeout="auto"
+            unmountOnExit
+          >
+            <Box
+              sx={{
+                marginY: 0,
+                p: 0,
+                m: 0,
+                backgroundColor: "transparent",
+                width: "100%",
+              }}
+            >
               {/* <Typography variant="h6" gutterBottom component="div">
                 Child table
               </Typography> */}
@@ -74,27 +110,38 @@ function Row(props) {
                 size="small"
                 aria-label="purchases"
                 sx={{
-                  backgroundColor: "#E4F6F3", // Light green for the header
+                  backgroundColor: "transparent", // Light green for the header
                   color: "black", // White text for contrast
                   fontWeight: "normal",
+                  width: "100%",
                 }}
               >
                 <TableHead>
                   <TableRow>
+                    <TableCell
+                      sx={{
+                        width: "50px !important",
+                        backgroundColor: "transparent",
+                      }}
+                    ></TableCell>
+
                     <TableCell>Datum</TableCell>
-                    <TableCell>Bearbeiter</TableCell>
-                    <TableCell align="right">Eintrag</TableCell>
+                    <TableCell
+                      sx={{ backgroundColor: "transparent", width: "auto" }}
+                    >
+                      Bearbeiter
+                    </TableCell>
+                    <TableCell align="left">Eintrag</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   <TableRow key={ticket.betreff}>
+                    <TableCell />
                     <TableCell component="th" scope="row">
                       {ticket.process.date}
                     </TableCell>
                     <TableCell>{ticket.process.revisor}</TableCell>
-                    <TableCell align="right">
-                      {ticket.process.comment}
-                    </TableCell>
+                    <TableCell align="left">{ticket.process.comment}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -190,7 +237,11 @@ export default function TicketTableCollapsable({ tickets }) {
         <Table aria-label="collapsible table">
           <TableHead sx={{ backgroundColor: "transparent" }}>
             <TableRow sx={{ backgroundColor: "transparent" }}>
-              <TableCell> </TableCell>
+              <TableCell
+                sx={{ backgroundColor: "transparent", width: "50px", p: 0 }}
+              >
+                {" "}
+              </TableCell>
               <TableCell sx={sxHeaderCell}>Nummer</TableCell>
               <TableCell sx={sxHeaderCell}>Bearbeitungsstatus</TableCell>
               <TableCell sx={sxHeaderCell}>Betreff</TableCell>

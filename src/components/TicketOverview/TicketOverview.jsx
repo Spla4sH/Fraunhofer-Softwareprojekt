@@ -68,8 +68,12 @@ export default function TicketOveriew() {
         backgroundColor: "transparent",
       }}
     >
-      <Stack direction="column" spacing={2}>
-        <Box sx={{ backgroundColor: "transparent", width: "100vw" }}>
+      <Stack
+        direction="column"
+        spacing={2}
+        sx={{ backgroundColor: "transparent", width: "80%" }}
+      >
+        <Box sx={{ backgroundColor: "transparent", width: "100%" }}>
           <Button variant="contained" startIcon={<AddIcon />}>
             Ticket erstellen
           </Button>
