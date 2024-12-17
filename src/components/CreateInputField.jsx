@@ -1,24 +1,51 @@
 import React from 'react';
-import { TextField, Box } from '@mui/material';
+import { Box, Typography, TextField } from '@mui/material';
 
 function CreateInputField({ headingText, isRequired, isFullWidth }) {
     return (
         <Box
             component="form"
-            sx={{ '& .MuiTextField-root': { m: 0, width: '25ch' } }}
+            sx={{
+                '& .MuiTextField-root': {  
+                    width: isFullWidth ? '100%' : '250px' },
+            }}
             noValidate
             autoComplete="off"
         >
-            <h3>
-                {headingText} {isRequired && <span>*</span>}
-            </h3>
-            <div>
-                <TextField
-                    style={{ width: isFullWidth ? '100%' : '250px' }}
-                    required
-                    placeholder= {headingText}
-                />
-            </div>
+            {/* H3 */}
+            <Typography
+                variant="h3"
+                sx={{
+                    fontFamily: "Arial, Helvetica, sans-serif",
+                    fontSize: "16px",
+                    color: "black",
+                    fontWeight: "bold",
+                    fontStyle: "normal",
+                    marginBottom: "0.5em",
+                }}
+            >
+                {headingText}
+                {isRequired && (
+                    <Box
+                        component="span"
+                        sx={{
+                            color: "red",
+                            marginLeft: "0.2em",
+                        }}
+                    >
+                        *
+                    </Box>
+                )}
+            </Typography>
+
+            {/* TextField */}
+            <TextField
+                required={isRequired}
+                placeholder={headingText}
+                sx={{
+                    width: isFullWidth ? '100%' : '250px',
+                }}
+            />
         </Box>
     );
 }

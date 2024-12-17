@@ -5,7 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import {IconButton, Box} from '@mui/material';
+import { IconButton, Box, Typography } from '@mui/material';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -17,48 +17,64 @@ const ConfigItems = [
   { title: '678uht' },
 ];
 
-export default function CheckboxesTags({headingText}) {
+export default function CheckboxesTags({ headingText }) {
 
   let inputArray = null;
 
-  if(headingText == "Betroffene Geräte"){
+  if (headingText == "Betroffene Geräte") {
     inputArray = ConfigItems;
   }
-  
+
   return (
     <Box>
-      <div className='HelperIcon'>
-        <h3>{headingText}</h3>
-          <IconButton aria-label="helpOutline" >
-            <HelpOutlineIcon />
-          </IconButton>
-      </div>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.0em',
+          marginBottom: "0.0em",
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{
+            fontSize: "16px",
+            fontWeight: "bold",
+            fontFamily: "Arial, Helvetica, sans-serif",
+            color: "black",
+            margin: "0.0em",
+          }}
+        >
+          {headingText}
+        </Typography>
+        <IconButton aria-label="helpOutline" >
+          <HelpOutlineIcon />
+        </IconButton>
+      </Box>
 
       <Autocomplete
+        sx={{
+          width: 350,
+          marginTop: "0.0em",
+        }}
         multiple
         id="checkboxes-tags-demo"
         options={inputArray}
         disableCloseOnSelect
         getOptionLabel={(option) => option.title}
-        renderOption={(props, option, { selected }) => {
-          const { key, ...optionProps } = props;
-          return (
-            <li key={key} {...optionProps}>
-              <Checkbox
-                icon={icon}
-                checkedIcon={checkedIcon}
-                style={{ marginRight: 8 }}
-                checked={selected}
-              />
-              {option.title}
-            </li>
-          );
-        }}
-        style={{ width: "350px" }}
+        renderOption={(props, option, { selected }) => (
+          <li {...props}>
+            <Checkbox
+              icon={<CheckBoxOutlineBlankIcon />}
+              checkedIcon={<CheckBoxIcon />}
+              style={{ marginRight: "0.5em" }}
+              checked={selected}
+            />
+            {option.title}
+          </li>
+        )}
         renderInput={(params) => (
-          <TextField {...params}
-            placeholder={headingText}
-          />
+          <TextField {...params} placeholder={headingText} />
         )}
       />
     </Box>

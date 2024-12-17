@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import { Box } from '@mui/material';
 import TicketBox from './components/TicketBox'
 
 
@@ -7,9 +7,17 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='App'>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F2F2F7',
+        height: '100vh',
+      }}
+    >
       <TicketBox />
-    </div>
+    </Box>
   )
 }
 

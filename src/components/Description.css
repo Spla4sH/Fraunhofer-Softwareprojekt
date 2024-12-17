@@ -1,9 +1,0 @@
-.Container__Description .MuiTextField-root {
-    display: flex;
-}
-
-.Text__Format {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0.5em;
-}

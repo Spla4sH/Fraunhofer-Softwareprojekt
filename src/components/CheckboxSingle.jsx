@@ -1,9 +1,9 @@
-import {FormControlLabel, Checkbox, IconButton} from '@mui/material';
+import {FormControlLabel, Checkbox, IconButton, Box} from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 function CheckboxSingle() {
     return (
-        <div>
+        <Box>
             <FormControlLabel control={<Checkbox defaultChecked color="success"/>} 
                     label="IT-Department"
                     sx={{
@@ -16,7 +16,7 @@ function CheckboxSingle() {
             <IconButton aria-label="helpOutline" >
                 <HelpOutlineIcon />
             </IconButton>
-        </div>
+        </Box>
     );
 }
 

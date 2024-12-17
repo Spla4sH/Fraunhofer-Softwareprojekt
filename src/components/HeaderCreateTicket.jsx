@@ -1,12 +1,36 @@
-import "./Stylesheet.css"
 import * as React from 'react';
-import {Box} from '@mui/material';
+import { Typography, Box } from '@mui/material';
 
 function HeaderCreateTicket() {
     return (
         <Box>
-            <h1>Ticket erstellen</h1>
-            <h2>Bitte füllen Sie die Felder aus.</h2>
+            {/* H1 */}
+            <Typography
+                variant="h1"
+                sx={{
+                    fontFamily: "Arial, Helvetica, sans-serif",
+                    fontSize: "24px",
+                    color: "black",
+                    lineHeight: "10px",
+                    marginBottom: "0.5em",
+                }}
+            >
+                Ticket erstellen
+            </Typography>
+
+            {/* H2 */}
+            <Typography
+                variant="h2"
+                sx={{
+                    fontFamily: "Arial, Helvetica, sans-serif",
+                    fontSize: "16px",
+                    color: "#757575",
+                    lineHeight: "20px",
+                    fontWeight: "normal",
+                }}
+            >
+                Bitte füllen Sie die Felder aus.
+            </Typography>
         </Box>
     )
 }
