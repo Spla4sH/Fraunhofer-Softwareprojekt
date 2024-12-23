@@ -1,11 +1,15 @@
-import Description from "./Description";
 import "./App.css";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import theme from "./theme/theme";
+import { ThemeProvider } from "@mui/material/styles";
 
 function App() {
   return (
-    <div>
-      <Description />
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        <Dashboard />
+      </ThemeProvider>
+    </>
   );
 }
 
