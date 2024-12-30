@@ -1,3 +1,3 @@
-# React + Vite
+# Ticket-App
 
 Fraunhofer Softwareprojekt Hochschule Furtwangen
