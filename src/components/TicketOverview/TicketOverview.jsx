@@ -6,8 +6,19 @@ import { useEffect, useState } from "react";
 import { getTicket, getTickets } from "../../api/api";
 import Tabs from "../../components/Tabs/Tabs";
 import TicketTableCollapsable from "../TicketTable/TicketTableCollapsable";
+import { useNavigation } from "../Menu/NavigationProvider";
 
 export default function TicketOveriew() {
+
+  // Buttonfunctions
+
+  const { navigateTo } = useNavigation();
+    
+  const handleNewTicketClick = () => {
+      navigateTo("createTicket");}
+
+  
+  // Datafunctions
   const [ticketData, setTicketData] = useState([]);
 
   function getTicketDataForTab(label) {
@@ -74,7 +85,7 @@ export default function TicketOveriew() {
         sx={{ backgroundColor: "transparent", width: "80%" }}
       >
         <Box sx={{ backgroundColor: "transparent", width: "100%" }}>
-          <Button variant="contained" startIcon={<AddIcon />}>
+          <Button variant="contained" startIcon={<AddIcon />} onClick={handleNewTicketClick}>
             Ticket erstellen
           </Button>
           <Typography

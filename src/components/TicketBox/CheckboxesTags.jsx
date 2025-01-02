@@ -5,7 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import { IconButton, Box, Typography } from '@mui/material';
+import { IconButton, Box, Typography, Tooltip } from '@mui/material';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -47,9 +47,11 @@ export default function CheckboxesTags({ headingText }) {
         >
           {headingText}
         </Typography>
+        <Tooltip title="Wählen Sie das Betroffene Gerät aus">
         <IconButton aria-label="helpOutline" >
           <HelpOutlineIcon />
         </IconButton>
+        </Tooltip>
       </Box>
 
       <Autocomplete

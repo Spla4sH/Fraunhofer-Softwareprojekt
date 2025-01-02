@@ -1,5 +1,5 @@
 import TicketOverview from "../../components/TicketOverview/TicketOverview";
-import TopBar from "../../components/TopBar/Topbar";
+import TopBar from "../../components/TopBar/TopBar";
 
 function Dashboard() {
   return (

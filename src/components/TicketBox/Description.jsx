@@ -88,6 +88,7 @@ function Description() {
                 id="outlined-textarea"
                 placeholder="Beschreibung"
                 multiline
+                rows={6}
                 sx={{
                     display: 'flex',
                     marginTop: "0.5em",

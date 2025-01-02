@@ -3,10 +3,25 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
+import Menu from "../Menu/Menu";
+import React, { useState } from "react";
 
-export default function TopBar() {
+export default function TopBar({ children }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage menu visibility
+
+  // Function to toggle the menu
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Function to close the menu
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <Box>
+      {/* AppBar remains static and stays at the top */}
       <AppBar
         position="static"
         sx={{
@@ -29,12 +44,16 @@ export default function TopBar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
-            onClick={() => console.log("menu")}
+            onClick={handleMenuToggle} // Toggle the menu visibility
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
+
+      {/* Render Menu component if the menu is open */}
+      {isMenuOpen && <Menu onClose={handleCloseMenu} />}
+      {children}
     </Box>
   );
 }
