@@ -21,14 +21,14 @@ export default function TicketOveriew() {
   // Datafunctions
   const [ticketData, setTicketData] = useState([]);
 
-  function getTicketDataForTab(label) {
+  function getTicketDataForTab(status) {
     if (!ticketData) {
       return [];
     }
-    if (label === "all") {
+    if (status === "all") {
       return ticketData;
     } else {
-      return ticketData.filter((ticket) => ticket.status.label === label);
+      return ticketData.filter((ticket) => ticket.status === status);
     }
   }
   //Data
@@ -37,7 +37,7 @@ export default function TicketOveriew() {
       const allTickets = await getTickets(); // Warten auf die Daten
       setTicketData(allTickets); // Daten in den State setzen
       console.log("abc", allTickets);
-      const ticketX = await getTicket("u1i2o3p4a5s6");
+      const ticketX = await getTicket("1");
       console.log(ticketX);
     }
 
@@ -45,23 +45,23 @@ export default function TicketOveriew() {
   }, []);
   const tabContent = [
     {
-      label: "Alle",
+      status: "Alle",
       content: <TicketTableCollapsable tickets={getTicketDataForTab("all")} />,
     },
     {
-      label: "Offen",
-      content: <TicketTableCollapsable tickets={getTicketDataForTab("Open")} />,
+      status: "Offen",
+      content: <TicketTableCollapsable tickets={getTicketDataForTab("Offen")} />,
     },
     {
-      label: "In Bearbeitung",
+      status: "In Bearbeitung",
       content: (
-        <TicketTableCollapsable tickets={getTicketDataForTab("In Progress")} />
+        <TicketTableCollapsable tickets={getTicketDataForTab("In Arbeit")} />
       ),
     },
     {
-      label: "Abgeschlossen",
+      status: "Abgeschlossen",
       content: (
-        <TicketTableCollapsable tickets={getTicketDataForTab("Closed")} />
+        <TicketTableCollapsable tickets={getTicketDataForTab("Geschlossen")} />
       ),
     },
   ];

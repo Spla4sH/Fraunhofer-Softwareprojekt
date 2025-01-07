@@ -1,4 +1,4 @@
-URL = "http://localhost:3000";
+URL = "http://localhost:3000/api";
 
 export async function getTickets() {
   try {

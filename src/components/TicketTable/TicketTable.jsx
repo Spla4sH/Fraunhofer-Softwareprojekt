@@ -60,7 +60,7 @@ function TicketTable({ tickets }) {
         }}
       >
         <TextField
-          placeholder="Suche nach Betreff, Ticketnummer, Status"
+          placeholder="Suche nach subject, Ticketid, Status"
           size="small"
           variant="outlined"
           slotProps={{
@@ -103,17 +103,17 @@ function TicketTable({ tickets }) {
                 <TableRow key={index}>
                   <TableCell sx={{ color: "#1F82C0" }}>
                     <Typography sx={{ fontWeight: "bold" }}>
-                      {ticket?.nummer}
+                      {ticket?.id}
                     </Typography>{" "}
                     <Typography variant="body2" color="text.secondary">
-                      Erstellt am {ticket?.dateCreated}
+                      Erstellt am {ticket?.date}
                     </Typography>
                   </TableCell>
                   <TableCell sx={{ color: "#155680" }}>
                     {" "}
                     <Chip
                       icon={<FiberManualRecordIcon sx={{ fontSize: "13px" }} />}
-                      label={ticket?.status?.label}
+                      label={ticket?.status}
                       color="primary"
                       variant="outlined"
                       sx={{
@@ -121,12 +121,12 @@ function TicketTable({ tickets }) {
                       }}
                     />
                     <Typography variant="body2" color="text.secondary">
-                      {ticket?.status?.label} seit{" "}
-                      {ticket.status.status_changed}
+                      {ticket?.status} seit{" "}
+                      {ticket.date}
                     </Typography>
                   </TableCell>
                   <TableCell sx={{ fontWeight: "bold" }}>
-                    {ticket?.betreff}
+                    {ticket?.subject}
                   </TableCell>
                 </TableRow>
               ))}

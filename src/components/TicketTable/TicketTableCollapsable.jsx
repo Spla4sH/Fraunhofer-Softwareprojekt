@@ -45,16 +45,16 @@ function Row(props) {
         </TableCell>
 
         <TableCell sx={{ color: "#1F82C0" }}>
-          <Typography sx={{ fontWeight: "bold" }}>{ticket?.nummer}</Typography>{" "}
+          <Typography sx={{ fontWeight: "bold" }}>{ticket?.id}</Typography>{" "}
           <Typography variant="body2" color="text.secondary">
-            Erstellt am {ticket?.dateCreated}
+            Erstellt am {ticket?.date}
           </Typography>
         </TableCell>
         <TableCell sx={{ color: "#155680" }}>
           {" "}
           <Chip
             icon={<FiberManualRecordIcon sx={{ fontSize: "13px" }} />}
-            label={ticket?.status?.label}
+            status={ticket?.status}
             color="primary"
             variant="outlined"
             sx={{
@@ -62,10 +62,10 @@ function Row(props) {
             }}
           />
           <Typography variant="body2" color="text.secondary">
-            {ticket?.status?.label} seit {ticket.status.status_changed}
+            {ticket?.date} seit {ticket.date}
           </Typography>
         </TableCell>
-        <TableCell sx={{ fontWeight: "bold" }}>{ticket?.betreff}</TableCell>
+        <TableCell sx={{ fontWeight: "bold" }}>{ticket?.subject}</TableCell>
       </TableRow>
       <TableRow
         sx={{
@@ -135,7 +135,7 @@ function Row(props) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <TableRow key={ticket.betreff}>
+                  <TableRow key={ticket.subject}>
                     <TableCell />
                     <TableCell component="th" scope="row">
                       {ticket.process.date}
@@ -174,15 +174,15 @@ export default function TicketTableCollapsable({ tickets }) {
     let filterValue = event.target.value.toLowerCase(); // Convert to lowercase for case-insensitive matching
     console.log("input value", filterValue);
 
-    // Filter tickets based on 'betreff' or 'nummer'
+    // Filter tickets based on 'subject' or 'id'
     const filtered = tickets.filter((ticket) => {
-      // Convert 'betreff' and 'nummer' to strings and check for includes
-      const betreffMatch =
-        ticket.betreff?.toLowerCase().includes(filterValue) || false;
-      const nummerMatch =
-        ticket.nummer?.toString().includes(filterValue) || false;
+      // Convert 'subject' and 'id' to strings and check for includes
+      const subjectMatch =
+        ticket.subject?.toLowerCase().includes(filterValue) || false;
+      const idMatch =
+        ticket.id?.toString().includes(filterValue) || false;
 
-      return betreffMatch || nummerMatch; // Include ticket if either field matches
+      return subjectMatch || idMatch; // Include ticket if either field matches
     });
 
     setTicketsFiltered(filtered); // Update state with the filtered list
@@ -223,7 +223,7 @@ export default function TicketTableCollapsable({ tickets }) {
       <TextField
         onChange={(event) => filterTicketData(event)}
         sx={{ m: 2, width: "80%", p: 1 }}
-        placeholder="Suche nach Betreff, Ticketnummer"
+        placeholder="Suche nach subject, Ticketid"
         slotProps={{
           input: {
             startAdornment: (
