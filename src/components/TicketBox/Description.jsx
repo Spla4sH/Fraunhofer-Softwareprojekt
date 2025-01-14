@@ -24,7 +24,7 @@ import LinkIcon from '@mui/icons-material/Link';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 
-function Description() {
+function Description({ inputValue, setInputValue, error }) {
     const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
         [`& .${toggleButtonGroupClasses.grouped}`]: {
             margin: theme.spacing(0.5),
@@ -89,6 +89,11 @@ function Description() {
                 placeholder="Beschreibung"
                 multiline
                 rows={6}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                error={error}
+                helperText={error ? "Bitte fügen Sie eine Beschreibung ein." : ""}
+                fullWidth
                 sx={{
                     display: 'flex',
                     marginTop: "0.5em",

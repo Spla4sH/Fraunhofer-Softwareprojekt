@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from "react";
 import { Box } from '@mui/material';
 import HeaderCreateTicket from "./HeaderCreateTicket";
 import SubjectLine from './SubjectLine';
@@ -8,19 +8,22 @@ import CheckboxesTags from "./CheckboxesTags";
 import CheckboxSingle from "./CheckboxSingle";
 
 function TicketBox() {
-    //TODO: make the background adapt to changes in the box
+    const [subjectInputValue, setSubjectInputValue] = useState("");
+    const [descriptionInputValue, setDescriptionInputValue] = useState("");
+    const [subjectError, setSubjectError] = useState(false);
+    const [descriptionError, setDescriptionError] = useState(false);
 
     return (
         <Box
-          sx={{
-            p: 3,
-            display: "flex",
-            alignItems: "start",
-            justifyContent: "center",
-            width: "100vw",
-            height: "fit-content",
-            backgroundColor: "transparent",
-          }}
+            sx={{
+                p: 3,
+                display: "flex",
+                alignItems: "start",
+                justifyContent: "center",
+                width: "100vw",
+                height: "fit-content",
+                backgroundColor: "transparent",
+            }}
         >
             <Box
                 sx={{
@@ -49,7 +52,12 @@ function TicketBox() {
                         width: "100%",
                     }}
                 >
-                    <SubjectLine />
+                    <SubjectLine
+                        inputValue={subjectInputValue}
+                        setInputValue={setSubjectInputValue}
+                        error={subjectError} 
+                        setError={setSubjectError}  
+                    />
                 </Box>
                 <Box
                     sx={{
@@ -73,7 +81,12 @@ function TicketBox() {
                         width: "100%",
                     }}
                 >
-                    <Description />
+                    <Description
+                        inputValue={descriptionInputValue}
+                        setInputValue={setDescriptionInputValue}
+                        error={descriptionError} 
+                        setError={setDescriptionError}
+                    />
                 </Box>
                 <Box
                     sx={{
@@ -81,7 +94,12 @@ function TicketBox() {
                         justifyContent: "flex-end",
                     }}
                 >
-                    <TicketButton />
+                    <TicketButton
+                        subjectInputValue={subjectInputValue}
+                        descriptionInputValue={descriptionInputValue}
+                        setSubjectError={setSubjectError}
+                        setDescriptionError={setDescriptionError}
+                    />
                 </Box>
             </Box>
         </Box>
