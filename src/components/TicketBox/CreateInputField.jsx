@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Typography, TextField } from '@mui/material';
 
-function CreateInputField({ headingText, isRequired, isFullWidth }) {
+function CreateInputField({ headingText, isRequired, isFullWidth, inputValue, setInputValue, error }) {
+    
     return (
         <Box
             component="form"
@@ -42,6 +43,10 @@ function CreateInputField({ headingText, isRequired, isFullWidth }) {
             <TextField
                 required={isRequired}
                 placeholder={headingText}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                error={error}
+                helperText={error && isRequired ? "Dieses Feld darf nicht leer sein." : ""}
                 sx={{
                     width: isFullWidth ? '100%' : '250px',
                 }}

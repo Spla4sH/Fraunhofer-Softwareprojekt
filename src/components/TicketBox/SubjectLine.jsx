@@ -45,7 +45,7 @@ function SubjectLine({ inputValue, setInputValue, error }) {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 error={error}
-                helperText={error ? "Bitte fügen Sie einen Betreffein." : ""}
+                helperText={error ? "Bitte fügen Sie einen Betreff ein." : ""}
                 sx={{
                     width: '100%',
                 }}

@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from "react";
-import TicketTableCollapsable from "../TicketTable/TicketTableCollapsable";
-import { Box, Button, Stack, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import { Box, Button, Typography } from "@mui/material";
+import Stack from "@mui/material/Stack";
+import * as React from "react";
+import { useEffect, useState } from "react";
 import Tabs from "../../components/Tabs/Tabs";
+import TicketTableCollapsable from "../TicketTable/TicketTableCollapsable";
 import { useNavigation } from "../Menu/NavigationProvider";
 import { getTicket, getTickets } from "../../api/api";
 
-export default function TicketOverview() {
-  const { navigateTo } = useNavigation();
-  const handleNewTicketClick = () => {
-    navigateTo("createTicket");
-  };
+export default function TicketOveriew() {
 
+  // Buttonfunctions
+  const { navigateTo } = useNavigation();
+    
+  const handleNewTicketClick = () => {
+      navigateTo("createTicket");}
+
+  
+  // Datafunctions
   const [ticketData, setTicketData] = useState([]);
 
   function getTicketDataForTab(status) {
@@ -24,24 +30,18 @@ export default function TicketOverview() {
       return ticketData.filter((ticket) => ticket.status === status);
     }
   }
-
+  //Data
   useEffect(() => {
     async function fetchTickets() {
-      try {
-        const allTickets = await getTickets(); // Alle Tickets abrufen
-        setTicketData(allTickets); // Tickets in den State speichern
-        console.log("Fetched tickets:", allTickets);
-
-        const ticketX = await getTicket(1); // Ein bestimmtes Ticket abrufen
-        console.log("Fetched single ticket:", ticketX);
-      } catch (error) {
-        console.error("Error during ticket fetching:", error);
-      }
+      const allTickets = await getTickets(); // Warten auf die Daten
+      setTicketData(allTickets); // Daten in den State setzen
+      console.log("abc", allTickets);
+      const ticketX = await getTicket("1");
+      console.log(ticketX);
     }
 
-    fetchTickets();
+    fetchTickets(); // Asynchrone Funktion aufrufen
   }, []);
-
   const tabContent = [
     {
       status: "Alle",
@@ -64,14 +64,15 @@ export default function TicketOverview() {
       ),
     },
   ];
-
   return (
     <Box
       sx={{
         p: 3,
+
         display: "flex",
         alignItems: "start",
         justifyContent: "center",
+
         width: "100vw",
         height: "fit-content",
         backgroundColor: "transparent",
@@ -83,11 +84,7 @@ export default function TicketOverview() {
         sx={{ backgroundColor: "transparent", width: "80%" }}
       >
         <Box sx={{ backgroundColor: "transparent", width: "100%" }}>
-          <Button
-            variant="contained"
-            startIcon={<AddIcon />}
-            onClick={handleNewTicketClick}
-          >
+          <Button variant="contained" startIcon={<AddIcon />} onClick={handleNewTicketClick}>
             Ticket erstellen
           </Button>
           <Typography

@@ -138,10 +138,10 @@ function Row(props) {
                   <TableRow key={ticket.subject}>
                     <TableCell />
                     <TableCell component="th" scope="row">
-                      {ticket.process.date}
+                      {ticket.date}
                     </TableCell>
-                    <TableCell>{ticket.process.revisor}</TableCell>
-                    <TableCell align="left">{ticket.process.comment}</TableCell>
+                    {/* <TableCell>{ticket.process.revisor}</TableCell> */}
+                    {/* <TableCell align="left">{ticket.process.comment}</TableCell> */}
                   </TableRow>
                 </TableBody>
               </Table>

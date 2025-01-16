@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from "react";
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -17,7 +17,13 @@ const ConfigItems = [
   { title: '678uht' },
 ];
 
-export default function CheckboxesTags({ headingText }) {
+export default function CheckboxesTags({ headingText, onChange }) {
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  const handleSelectionChange = (event, newValue) => {
+    setSelectedItems(newValue);
+    onChange(newValue.map(item => item.title)); // IDs an die Elternkomponente weitergeben
+  };
 
   let inputArray = null;
 
@@ -64,6 +70,7 @@ export default function CheckboxesTags({ headingText }) {
         options={inputArray}
         disableCloseOnSelect
         getOptionLabel={(option) => option.title}
+        onChange={handleSelectionChange}
         renderOption={(props, option, { selected }) => (
           <li {...props}>
             <Checkbox

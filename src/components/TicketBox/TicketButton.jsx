@@ -2,37 +2,56 @@ import React from "react";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useNavigation } from "../Menu/NavigationProvider";
+import { createTicket } from "../../api/api";
 
 
-export default function TicketButton({  subjectInputValue, descriptionInputValue, setSubjectError, setDescriptionError }) {
+export default function TicketButton({  subjectInputValue, descriptionInputValue, setSubjectError, setDescriptionError, selectedConfigItems }) {
   const { navigateTo } = useNavigation();
 
   const handleCancelClick = () => {
     navigateTo("dashboard");
   };
 
-  const handleCreateTicketClick = () => {
+  const handleCreateTicketClick = async () =>  {
     let subjectIsValid = true;
     let descriptionIsValid = true;
 
     if (subjectInputValue.trim() === "") {
-      setSubjectError(true);
-      subjectIsValid = false;
+        setSubjectError(true);
+        subjectIsValid = false;
+        console.log("Subjectline is not valid");
     } else {
-      setSubjectError(false);
+        setSubjectError(false);
     }
 
-    if (descriptionInputValue.trim() === "") {
-      setDescriptionError(true);
-      descriptionIsValid = false;
+    const isDescriptionEmpty = descriptionInputValue === "<p></p>" || descriptionInputValue.trim() === "";
+    if (isDescriptionEmpty) {
+        setDescriptionError(true);
+        descriptionIsValid = false;
+        console.log("Description is not valid");
     } else {
-      setDescriptionError(false);
+        setDescriptionError(false);
     }
 
     if (subjectIsValid && descriptionIsValid) {
-      console.log("Ticket created successfully");
+      const ticketData = {
+        subject: subjectInputValue,
+        description: descriptionInputValue,
+        ci_id: selectedConfigItems,
+        author: "TestAuthor",
+        author_id: "2222",
+      };
+
+      try {
+        const response = await createTicket(ticketData);
+        console.log("Ticket erfolgreich erstellt:", response);
+
+        navigateTo("dashboard");
+      } catch (error) {
+        console.error("Fehler beim Erstellen des Tickets:", error);
+      }
     }
-  };
+};
 
   return (
       <Stack spacing={2} direction="row">
@@ -51,7 +70,7 @@ export default function TicketButton({  subjectInputValue, descriptionInputValue
         </Button>
         <Button
           variant="contained"
-          onClick={handleCreateTicketClick}
+          onClick={async () => await handleCreateTicketClick()}
           sx={{
             bgcolor: "#009374",
             color: "white",

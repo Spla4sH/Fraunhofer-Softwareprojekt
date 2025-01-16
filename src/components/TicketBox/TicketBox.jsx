@@ -12,6 +12,7 @@ function TicketBox() {
     const [descriptionInputValue, setDescriptionInputValue] = useState("");
     const [subjectError, setSubjectError] = useState(false);
     const [descriptionError, setDescriptionError] = useState(false);
+    const [selectedConfigItems, setSelectedConfigItems] = useState([]);
 
     return (
         <Box
@@ -69,7 +70,9 @@ function TicketBox() {
                     }}
                 >
                     <Box sx={{ flex: 1 }}>
-                        <CheckboxesTags headingText="Betroffene Geräte" />
+                        <CheckboxesTags headingText="Betroffene Geräte" 
+                        onChange={setSelectedConfigItems}
+                        />
                     </Box>
                     <Box sx={{ flexShrink: 0 }}>
                         <CheckboxSingle />

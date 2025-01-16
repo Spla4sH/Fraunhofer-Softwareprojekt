@@ -24,7 +24,7 @@ function CheckboxSingle() {
         >
         IT-Abteilung informieren
         </Typography>
-        <Tooltip title="Ticket soll zusaätzlich an die IT-Abteilung">
+        <Tooltip title="Ticket soll zusätzlich an die IT-Abteilung">
           <IconButton
             aria-label="helpOutline"
             >
