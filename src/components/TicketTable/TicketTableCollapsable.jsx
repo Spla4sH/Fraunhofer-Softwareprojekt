@@ -30,15 +30,24 @@ function Row(props) {
   const theme = useTheme();
 
   const statusToColorMap = {
-    "Offen": "open", 
-    "In Arbeit": "inProgress", 
-    "Geschlossen": "closed", 
-    "Warten": "reminder", 
+    "Offen": "open",
+    "In Arbeit": "inProgress",
+    "Geschlossen": "closed",
+    "Warten": "reminder",
   };
 
   const getColor = (status) => {
     const colorKey = statusToColorMap[status]; // Hole den Farbkey für den Status
     return colorKey ? theme.palette.status[colorKey] : theme.palette.secondary.main; // Fallback zu Grau
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("de-DE", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
   };
 
   return (
@@ -62,7 +71,7 @@ function Row(props) {
         <TableCell sx={{ color: "#1F82C0" }}>
           <Typography sx={{ fontWeight: "bold" }}>{ticket?.id}</Typography>{" "}
           <Typography variant="body2" color="text.secondary">
-            Erstellt am {ticket?.date}
+            Erstellt am {formatDate(ticket?.date)}
           </Typography>
         </TableCell>
         <TableCell sx={{ color: "#155680" }}>
@@ -79,7 +88,7 @@ function Row(props) {
             }}
           />
           <Typography variant="body2" color="text.secondary">
-            {ticket?.date} seit {ticket.date}
+            {ticket?.status} seit {formatDate(ticket?.date)}
           </Typography>
         </TableCell>
         <TableCell sx={{ fontWeight: "bold" }}>{ticket?.subject}</TableCell>
@@ -155,7 +164,7 @@ function Row(props) {
                   <TableRow key={ticket.subject}>
                     <TableCell />
                     <TableCell component="th" scope="row">
-                      {ticket.date}
+                    {formatDate(ticket?.date)}
                     </TableCell>
                     {/* <TableCell>{ticket.process.revisor}</TableCell> */}
                     {/* <TableCell align="left">{ticket.process.comment}</TableCell> */}
