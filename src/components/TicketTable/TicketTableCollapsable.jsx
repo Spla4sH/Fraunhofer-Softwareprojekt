@@ -21,10 +21,25 @@ import { useState, useEffect } from "react";
 import { Chip, TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import { useTheme } from "@mui/material/styles";
 
 function Row(props) {
   const { ticket } = props;
   const [open, setOpen] = React.useState(false);
+
+  const theme = useTheme();
+
+  const statusToColorMap = {
+    "Offen": "open", 
+    "In Arbeit": "inProgress", 
+    "Geschlossen": "closed", 
+    "Warten": "reminder", 
+  };
+
+  const getColor = (status) => {
+    const colorKey = statusToColorMap[status]; // Hole den Farbkey für den Status
+    return colorKey ? theme.palette.status[colorKey] : theme.palette.secondary.main; // Fallback zu Grau
+  };
 
   return (
     <React.Fragment>
@@ -55,9 +70,11 @@ function Row(props) {
           <Chip
             icon={<FiberManualRecordIcon sx={{ fontSize: "13px" }} />}
             status={ticket?.status}
-            color="primary"
-            variant="outlined"
+            color="status"
+            label={ticket?.status}
             sx={{
+              backgroundColor: getColor(ticket?.status),
+              color: "white",
               fontWeight: "bold",
             }}
           />

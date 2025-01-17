@@ -18,6 +18,12 @@ const theme = createTheme({
       primary: "#000000", // Black text
       secondary: "#757575", // Gray text
     },
+    status: {
+      open: "#8ab3f9", // blue
+      inProgress: "#f7cb85", // orange
+      closed: "#009374", // Green
+      reminder: "#f9a2a5", // red
+    },
   },
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
