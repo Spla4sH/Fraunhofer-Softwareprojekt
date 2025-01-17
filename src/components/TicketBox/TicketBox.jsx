@@ -102,6 +102,7 @@ function TicketBox() {
                         descriptionInputValue={descriptionInputValue}
                         setSubjectError={setSubjectError}
                         setDescriptionError={setDescriptionError}
+                        selectedConfigItems={selectedConfigItems}
                     />
                 </Box>
             </Box>
