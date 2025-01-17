@@ -249,7 +249,7 @@ export default function TicketTableCollapsable({ tickets }) {
       <TextField
         onChange={(event) => filterTicketData(event)}
         sx={{ m: 2, width: "80%", p: 1 }}
-        placeholder="Suche nach subject, Ticketid"
+        placeholder="Suche nach Betreff und Ticketnummer"
         slotProps={{
           input: {
             startAdornment: (

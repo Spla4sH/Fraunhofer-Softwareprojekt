@@ -52,13 +52,13 @@ export default function TicketOverview() {
       content: <TicketTableCollapsable tickets={getTicketDataForTab("Offen")} />,
     },
     {
-      label: "In Bearbeitung",
+      label: "In Arbeit",
       content: (
         <TicketTableCollapsable tickets={getTicketDataForTab("In Arbeit")} />
       ),
     },
     {
-      label: "Abgeschlossen",
+      label: "Geschlossen",
       content: (
         <TicketTableCollapsable tickets={getTicketDataForTab("Geschlossen")} />
       ),
@@ -87,15 +87,20 @@ export default function TicketOverview() {
             variant="contained"
             startIcon={<AddIcon />}
             onClick={handleNewTicketClick}
+            sx={{
+              height: "50px",
+              minWidth: "162px",
+            }}
           >
             Ticket erstellen
           </Button>
           <Typography
             sx={{
-              marginTop: 3,
+              marginTop: 5,
+              marginBottom: 1.5,
               fontStyle: "normal",
               fontWeight: 700,
-              fontSize: 14,
+              fontSize: 20,
               lineHeight: "17px",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
