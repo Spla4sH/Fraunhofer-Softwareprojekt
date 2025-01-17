@@ -44,21 +44,21 @@ export default function TicketOverview() {
 
   const tabContent = [
     {
-      status: "Alle",
+      label: "Alle",
       content: <TicketTableCollapsable tickets={getTicketDataForTab("all")} />,
     },
     {
-      status: "Offen",
+      label: "Offen",
       content: <TicketTableCollapsable tickets={getTicketDataForTab("Offen")} />,
     },
     {
-      status: "In Bearbeitung",
+      label: "In Bearbeitung",
       content: (
         <TicketTableCollapsable tickets={getTicketDataForTab("In Arbeit")} />
       ),
     },
     {
-      status: "Abgeschlossen",
+      label: "Abgeschlossen",
       content: (
         <TicketTableCollapsable tickets={getTicketDataForTab("Geschlossen")} />
       ),
