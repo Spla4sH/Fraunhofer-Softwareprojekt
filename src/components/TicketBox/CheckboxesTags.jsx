@@ -6,6 +6,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { IconButton, Box, Typography, Tooltip } from '@mui/material';
+import { styled } from "@mui/system";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -24,6 +25,17 @@ export default function CheckboxesTags({ headingText, onChange }) {
     setSelectedItems(newValue);
     onChange(newValue.map(item => item.title)); // IDs an die Elternkomponente weitergeben
   };
+
+  const LargeTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(() => ({
+    [`& .MuiTooltip-tooltip`]: {
+      fontSize: "1rem", // Schriftgröße des Tooltips (z. B. 16px)
+      padding: "8px 12px", // Innenabstand
+      color: "white", // Textfarbe
+      backgroundColor: "#757575", // Hintergrundfarbe
+    },
+  }));
 
   let inputArray = null;
 
@@ -53,11 +65,11 @@ export default function CheckboxesTags({ headingText, onChange }) {
         >
           {headingText}
         </Typography>
-        <Tooltip title="Wählen Sie das Betroffene Gerät aus">
+        <LargeTooltip title="Wählen Sie das Betroffene Gerät aus">
         <IconButton aria-label="helpOutline" >
           <HelpOutlineIcon />
         </IconButton>
-        </Tooltip>
+        </LargeTooltip>
       </Box>
 
       <Autocomplete

@@ -1,8 +1,21 @@
-import {Typography, Checkbox, IconButton, Box, Tooltip,} from '@mui/material';
+import { Typography, Checkbox, IconButton, Box, Tooltip, } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { styled } from "@mui/system";
 
 function CheckboxSingle() {
-    return (
+
+  const LargeTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(() => ({
+    [`& .MuiTooltip-tooltip`]: {
+      fontSize: "1rem", // Schriftgröße des Tooltips (z. B. 16px)
+      padding: "8px 12px", // Innenabstand
+      color: "white", // Textfarbe
+      backgroundColor: "#757575", // Hintergrundfarbe
+    },
+  }));
+
+  return (
     <Box>
       <Box
         sx={{
@@ -22,19 +35,20 @@ function CheckboxSingle() {
             margin: "0.0em",
           }}
         >
-        IT-Abteilung informieren
+          IT-Abteilung informieren
         </Typography>
-        <Tooltip title="Ticket soll zusätzlich an die IT-Abteilung">
+        <LargeTooltip title="Ticket soll zusätzlich an die IT-Abteilung geschickt werden"
+        >
           <IconButton
             aria-label="helpOutline"
-            >
-            <HelpOutlineIcon/>
+          >
+            <HelpOutlineIcon />
           </IconButton>
-        </Tooltip>
+        </LargeTooltip>
       </Box>
       <Checkbox color="success" sx={{ marginTop: '12px', transform: 'scale(1.5)', padding: "4px" }} />
-      </Box>
-    );
+    </Box>
+  );
 }
 
 export default CheckboxSingle;
