@@ -17,25 +17,18 @@ import {
 import { useNavigation } from "./NavigationProvider";
 
 const Menu = ({ onClose }) => {
-    const { navigateTo } = useNavigation();
+  const { navigateTo } = useNavigation();
 
-    const handleDashboardClick = () => {
+  const handleDashboardClick = () => {
     navigateTo("dashboard");
-    onClose(); // Close the menu after navigation
-    };
-
-  // toImplement
-  // const handlePinnwallClick = () => {}
-
-  // toImplement
-  // const handleMemoryClick = () => {}
-  
+    onClose();
+  };
 
   return (
     <Box
       sx={{
         position: "fixed",
-        top: 0, // Menu starts directly from the top
+        top: 0,
         left: 0,
         height: "100%",
         width: "250px",
@@ -53,7 +46,7 @@ const Menu = ({ onClose }) => {
           display: "flex",
           alignItems: "center",
           pt: 2,
-          pl: 3, // Padding left for "Menu" text
+          pl: 3,
         }}
       >
         {/* Menu Text */}
@@ -62,7 +55,7 @@ const Menu = ({ onClose }) => {
           sx={{
             fontWeight: "bold",
             color: "black",
-            mr: 2, // Space between "Menu" and arrow
+            mr: 2,
           }}
         >
           Menu
@@ -97,7 +90,7 @@ const Menu = ({ onClose }) => {
               cursor: "pointer",
             },
           }}
-            onClick={handleDashboardClick}
+          onClick={handleDashboardClick}
         >
           <ListItemText
             primary="Tickets"
@@ -121,7 +114,6 @@ const Menu = ({ onClose }) => {
               cursor: "pointer",
             },
           }}
-          // onClick={handlePinnwallClick}
         >
           <ListItemText
             primary="Pinnwand"
@@ -145,7 +137,6 @@ const Menu = ({ onClose }) => {
               cursor: "pointer",
             },
           }}
-          // onClick={handleMemoryClick}
         >
           <ListItemText
             primary="Erinnerung"
