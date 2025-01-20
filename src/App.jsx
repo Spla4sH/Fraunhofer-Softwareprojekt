@@ -1,19 +1,21 @@
+import { ThemeProvider } from "@mui/material/styles";
+import React from "react";
 import "./App.css";
+import {
+  NavigationProvider,
+  useNavigation,
+} from "./components/Menu/NavigationProvider";
+import CreateTicket from "./pages/CreateTicket/CreateTicket";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import theme from "./theme/theme";
-import { ThemeProvider } from "@mui/material/styles";
-import {NavigationProvider, useNavigation} from './components/Menu/NavigationProvider';
-import React from 'react';
-import CreateTicket from "./pages/CreateTicket/CreateTicket";
 
 function App() {
   return (
     <>
-    
       <ThemeProvider theme={theme}>
         <NavigationProvider>
-        <AppContent />
-        </NavigationProvider>      
+          <AppContent />
+        </NavigationProvider>
       </ThemeProvider>
     </>
   );
