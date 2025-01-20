@@ -8,6 +8,7 @@ This document provides an overview of the ticket system prototype designed for m
 2. [Installation](#installation)
 3. [Running the Development Server](#running-the-development-server)
 4. [Folder Structure](#folder-structure)
+5. [Development Team](#development-team)
 
 ---
 
@@ -84,3 +85,13 @@ project-root/
 ├── README.md             # Project documentation
 └── vite.config.js        # Vite configuration file
 ```
+
+## Development Team
+
+| Name            | Email                          |
+| --------------- | ------------------------------ |
+| Louis Unger     | lunxxxx@stud.hs-furtwangen.de  |
+| Moreen Rach     | mra48623@stud.hs-furtwangen.de |
+| Lorenz Noll     | lno44776@stud.hs-furtwangen.de |
+| Sebastian Rösch | sro48000@stud.hs-furtwangen.de |
+| Vincent Pojer   | vpo45924@stud.hs-furtwangen.de |
