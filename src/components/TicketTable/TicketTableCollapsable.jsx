@@ -30,15 +30,17 @@ function Row(props) {
   const theme = useTheme();
 
   const statusToColorMap = {
-    "Offen": "open",
+    Offen: "open",
     "In Arbeit": "inProgress",
-    "Geschlossen": "closed",
-    "Warten": "reminder",
+    Geschlossen: "closed",
+    Warten: "reminder",
   };
 
   const getColor = (status) => {
     const colorKey = statusToColorMap[status]; // Hole den Farbkey für den Status
-    return colorKey ? theme.palette.status[colorKey] : theme.palette.secondary.main; // Fallback zu Grau
+    return colorKey
+      ? theme.palette.status[colorKey]
+      : theme.palette.secondary.main; // Fallback zu Grau
   };
 
   const formatDate = (dateString) => {
@@ -129,15 +131,12 @@ function Row(props) {
                 width: "100%",
               }}
             >
-              {/* <Typography variant="h6" gutterBottom component="div">
-                Child table
-              </Typography> */}
               <Table
                 size="small"
                 aria-label="purchases"
                 sx={{
-                  backgroundColor: "transparent", // Light green for the header
-                  color: "black", // White text for contrast
+                  backgroundColor: "transparent",
+                  color: "black",
                   fontWeight: "normal",
                   width: "100%",
                 }}
@@ -164,10 +163,8 @@ function Row(props) {
                   <TableRow key={ticket.subject}>
                     <TableCell />
                     <TableCell component="th" scope="row">
-                    {formatDate(ticket?.date)}
+                      {formatDate(ticket?.date)}
                     </TableCell>
-                    {/* <TableCell>{ticket.process.revisor}</TableCell> */}
-                    {/* <TableCell align="left">{ticket.process.comment}</TableCell> */}
                   </TableRow>
                 </TableBody>
               </Table>
@@ -197,21 +194,18 @@ export default function TicketTableCollapsable({ tickets }) {
     setPage(0);
   };
   const filterTicketData = (event) => {
-    let filterValue = event.target.value.toLowerCase(); // Convert to lowercase for case-insensitive matching
+    let filterValue = event.target.value.toLowerCase();
     console.log("input value", filterValue);
 
-    // Filter tickets based on 'subject' or 'id'
     const filtered = tickets.filter((ticket) => {
-      // Convert 'subject' and 'id' to strings and check for includes
       const subjectMatch =
         ticket.subject?.toLowerCase().includes(filterValue) || false;
-      const idMatch =
-        ticket.id?.toString().includes(filterValue) || false;
+      const idMatch = ticket.id?.toString().includes(filterValue) || false;
 
-      return subjectMatch || idMatch; // Include ticket if either field matches
+      return subjectMatch || idMatch;
     });
 
-    setTicketsFiltered(filtered); // Update state with the filtered list
+    setTicketsFiltered(filtered);
   };
   const sxHeaderCell = {
     marginTop: 3,

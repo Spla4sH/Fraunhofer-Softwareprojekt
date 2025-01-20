@@ -1,11 +1,16 @@
 import React from "react";
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import { useNavigation } from "../Menu/NavigationProvider";
-import { createTicket } from "../../api/api";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import { useNavigation } from "../../Menu/NavigationProvider";
+import { createTicket } from "../../../api/api";
 
-
-export default function TicketButton({ subjectInputValue, descriptionInputValue, setSubjectError, setDescriptionError, selectedConfigItems }) {
+export default function TicketButton({
+  subjectInputValue,
+  descriptionInputValue,
+  setSubjectError,
+  setDescriptionError,
+  selectedConfigItems,
+}) {
   const { navigateTo } = useNavigation();
 
   const handleCancelClick = () => {
@@ -24,7 +29,9 @@ export default function TicketButton({ subjectInputValue, descriptionInputValue,
       setSubjectError(false);
     }
 
-    const isDescriptionEmpty = descriptionInputValue === "<p></p>" || descriptionInputValue.trim() === "";
+    const isDescriptionEmpty =
+      descriptionInputValue === "<p></p>" ||
+      descriptionInputValue.trim() === "";
     if (isDescriptionEmpty) {
       setDescriptionError(true);
       descriptionIsValid = false;
@@ -79,7 +86,7 @@ export default function TicketButton({ subjectInputValue, descriptionInputValue,
           height: "50px",
           minWidth: "162px",
           bgcolor: isButtonDisabled ? "#c7c7cc" : "#009374",
-          color: "white", 
+          color: "white",
           "&:hover": {
             bgcolor: isButtonDisabled ? "#c7c7cc" : "#007D63",
           },

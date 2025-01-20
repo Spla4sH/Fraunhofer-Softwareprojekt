@@ -28,11 +28,11 @@ export default function TicketOverview() {
   useEffect(() => {
     async function fetchTickets() {
       try {
-        const allTickets = await getTickets(); // Alle Tickets abrufen
-        setTicketData(allTickets); // Tickets in den State speichern
+        const allTickets = await getTickets();
+        setTicketData(allTickets);
         console.log("Fetched tickets:", allTickets);
 
-        const ticketX = await getTicket(1); // Ein bestimmtes Ticket abrufen
+        const ticketX = await getTicket(1);
         console.log("Fetched single ticket:", ticketX);
       } catch (error) {
         console.error("Error during ticket fetching:", error);
@@ -49,7 +49,9 @@ export default function TicketOverview() {
     },
     {
       label: "Offen",
-      content: <TicketTableCollapsable tickets={getTicketDataForTab("Offen")} />,
+      content: (
+        <TicketTableCollapsable tickets={getTicketDataForTab("Offen")} />
+      ),
     },
     {
       label: "In Arbeit",

@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import Checkbox from '@mui/material/Checkbox';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import { IconButton, Box, Typography, Tooltip } from '@mui/material';
+import Checkbox from "@mui/material/Checkbox";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import { IconButton, Box, Typography, Tooltip } from "@mui/material";
 import { styled } from "@mui/system";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const ConfigItems = [
-  { title: '123xyz' },
-  { title: '124fgh' },
-  { title: '345gth' },
-  { title: '678uht' },
+  { title: "123xyz" },
+  { title: "124fgh" },
+  { title: "345gth" },
+  { title: "678uht" },
 ];
 
 export default function CheckboxesTags({ headingText, onChange }) {
@@ -23,17 +23,17 @@ export default function CheckboxesTags({ headingText, onChange }) {
 
   const handleSelectionChange = (event, newValue) => {
     setSelectedItems(newValue);
-    onChange(newValue.map(item => item.title)); // IDs an die Elternkomponente weitergeben
+    onChange(newValue.map((item) => item.title));
   };
 
   const LargeTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))(() => ({
     [`& .MuiTooltip-tooltip`]: {
-      fontSize: "1rem", // Schriftgröße des Tooltips (z. B. 16px)
-      padding: "8px 12px", // Innenabstand
-      color: "white", // Textfarbe
-      backgroundColor: "#757575", // Hintergrundfarbe
+      fontSize: "1rem",
+      padding: "8px 12px",
+      color: "white",
+      backgroundColor: "#757575",
     },
   }));
 
@@ -47,9 +47,9 @@ export default function CheckboxesTags({ headingText, onChange }) {
     <Box>
       <Box
         sx={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.0em',
+          display: "flex",
+          alignItems: "center",
+          gap: "0.0em",
           marginBottom: "0.0em",
         }}
       >
@@ -66,9 +66,9 @@ export default function CheckboxesTags({ headingText, onChange }) {
           {headingText}
         </Typography>
         <LargeTooltip title="Wählen Sie das Betroffene Gerät aus">
-        <IconButton aria-label="helpOutline" >
-          <HelpOutlineIcon />
-        </IconButton>
+          <IconButton aria-label="helpOutline">
+            <HelpOutlineIcon />
+          </IconButton>
         </LargeTooltip>
       </Box>
 

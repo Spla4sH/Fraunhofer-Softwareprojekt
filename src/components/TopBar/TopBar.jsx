@@ -7,14 +7,12 @@ import Menu from "../Menu/Menu";
 import React, { useState } from "react";
 
 export default function TopBar({ children }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage menu visibility
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Function to toggle the menu
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Function to close the menu
   const handleCloseMenu = () => {
     setIsMenuOpen(false);
   };
@@ -44,7 +42,7 @@ export default function TopBar({ children }) {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
-            onClick={handleMenuToggle} // Toggle the menu visibility
+            onClick={handleMenuToggle}
           >
             <MenuIcon />
           </IconButton>
