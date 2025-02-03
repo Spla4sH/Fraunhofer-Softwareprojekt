@@ -85,6 +85,10 @@ project-root/
 ├── README.md             # Project documentation
 └── vite.config.js        # Vite configuration file
 ```
+![photo_5258102936511310894_y](https://github.com/user-attachments/assets/aeb3356f-0a08-464c-83f4-6b7800c26999)
+
+![photo_5260428730021572046_y](https://github.com/user-attachments/assets/dd418f2b-37a2-4fa8-a8d5-3714fca0da9f)
+
 
 ## Development Team
 
