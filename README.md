@@ -9,6 +9,7 @@ This document provides an overview of the ticket system prototype designed for m
 3. [Running the Development Server](#running-the-development-server)
 4. [Folder Structure](#folder-structure)
 5. [Development Team](#development-team)
+6. [Preview](#preview)
 
 ---
 
@@ -85,6 +86,8 @@ project-root/
 ├── README.md             # Project documentation
 └── vite.config.js        # Vite configuration file
 ```
+
+## Preview
 ![photo_5258102936511310894_y](https://github.com/user-attachments/assets/aeb3356f-0a08-464c-83f4-6b7800c26999)
 
 ![photo_5260428730021572046_y](https://github.com/user-attachments/assets/dd418f2b-37a2-4fa8-a8d5-3714fca0da9f)
